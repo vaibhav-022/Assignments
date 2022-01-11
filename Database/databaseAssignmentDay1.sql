@@ -44,3 +44,6 @@ select Name from Employees where name like '%Sharma';
 
 -- like using '_' wildcard
 select Name from Employees where EmpId like '_04';
+
+-- delete query
+delete from Employees where EmpId=103;
