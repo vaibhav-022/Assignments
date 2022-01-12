@@ -96,6 +96,7 @@ VIEW `transactions`.`profitview` AS
     FROM
         (`transactions`.`orderdetails`
         JOIN `transactions`.`products` ON ((`transactions`.`orderdetails`.`ProductId` = `transactions`.`products`.`ProductId`)))
-
+//
 -- calling view
 Select *, OrderAmt-buyPrice as Profit from profitview order by Profit desc;
+//
