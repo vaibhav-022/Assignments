@@ -1,0 +1,97 @@
+-- create database--
+use demo1
+
+-- Drop database--
+db.dropDatabase()
+
+-- Create Collection --
+db.createCollection('posts')
+
+--View Collections --
+show collections
+
+-- Insert Single row--
+db.posts.insert({
+title: 'First Post',
+body: 'Body of Post',
+category: 'Sports',
+tags: ['Cricket','India','Match'],
+user:{
+name: 'Vaibhav Sharma',
+status:'Author'
+},
+date: Date()
+})
+
+-- Insert Multiple Rows at once --
+db.posts.insertMany([
+{
+    title:'Post Two',
+    body:'body of post two',
+    Category:'News',
+    date: Date(),
+    user:{
+        name: 'Virat Kohli',
+        status:'Author'
+    }
+},
+{
+    title:'Post Three',
+    body:'body of post Three',
+    Category:'Entertainment',
+    date: Date(),
+    user:{
+        name: 'MS Dhoni',
+        status:'Author'
+    }
+},
+{
+    title:'Post Four',
+    body:'body of post Four',
+    Category:'Technology',
+    date: Date(),
+    user:{
+        name: 'Rohit Sharma',
+        status:'Author'
+    }
+}
+
+])
+
+-- Get All Rows --
+db.posts.find()
+
+db.posts.find().pretty()
+
+-- Find Rows where Category is sports--
+db.posts.find({category:'Sports'}).pretty()
+
+-- Count number of Records--
+db.posts.find({category:'Sports'}).pretty().count()
+
+-- Update Full Record--
+db.posts.update({title:'Post Three'},
+    {
+    title: 'Post Three New',
+    body: 'Body of Post',
+    category: 'Sports',
+    date: Date()
+    },
+    {
+        upsert: true
+    } 
+    )
+
+-- Update A particular field --
+db.posts.update({title:'Post Three New'},
+    {
+        $set:{
+        title: 'Post Three New Pro',
+        body: 'Body of Post Pro',
+        date: Date()
+        }
+    }
+    )
+
+-- Delete a Row--
+db.posts.remove({title:'Post Three New Pro'})
