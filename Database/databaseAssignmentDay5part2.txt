@@ -1,0 +1,39 @@
+-- Sub documents--
+db.posts.update({ title: 'First Post' },
+{
+  $set: {
+    comments: [
+      {
+        body: 'Comment One',
+        user: 'Rahul Dravid',
+        date: Date()
+      },
+      {
+        body: 'Comment Two',
+        user: 'Kapil Dev',
+        date: Date()
+      }
+    ]
+  }
+})
+
+
+-- Find by Element in Array--
+db.posts.find({
+  comments: {
+     $elemMatch: {
+       user: 'Rahul Dravid'
+       }
+    }
+  }
+).pretty()
+
+-- Add Index--
+db.posts.createIndex({ title: 'text' })
+
+-- Text Search--
+db.posts.find({
+    $text: {
+      $search: "\"Post F\""
+      }
+  }).pretty()
