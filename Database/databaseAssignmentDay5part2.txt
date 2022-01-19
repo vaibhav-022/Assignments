@@ -1,3 +1,4 @@
+---------------------------------------------------------------------------------------------------
 -- Sub documents--
 db.posts.update({ title: 'First Post' },
 {
@@ -18,6 +19,10 @@ db.posts.update({ title: 'First Post' },
 })
 
 
+OutPut:
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+---------------------------------------------------------------------------------------------------
 -- Find by Element in Array--
 db.posts.find({
   comments: {
@@ -28,12 +33,72 @@ db.posts.find({
   }
 ).pretty()
 
+
+OutPut:
+
+{
+        "_id" : ObjectId("61e8012435a7d32a85e34a7d"),
+        "title" : "First Post",
+        "body" : "Body of Post",
+        "category" : "Sports",
+        "tags" : [
+                "Cricket",
+                "India",
+                "Match"
+        ],
+        "user" : {
+                "name" : "Vaibhav Sharma",
+                "status" : "Author"
+        },
+        "date" : "Wed Jan 19 2022 17:46:36 GMT+0530 (India Standard Time)",
+        "comments" : [
+                {
+                        "body" : "Comment One",
+                        "user" : "Rahul Dravid",
+                        "date" : "Wed Jan 19 2022 17:50:23 GMT+0530 (India Standard Time)"
+                },
+                {
+                        "body" : "Comment Two",
+                        "user" : "Kapil Dev",
+                        "date" : "Wed Jan 19 2022 17:50:23 GMT+0530 (India Standard Time)"
+                }
+        ]
+}
+
+---------------------------------------------------------------------------------------------------
 -- Add Index--
 db.posts.createIndex({ title: 'text' })
 
+
+OutPut:
+{
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "createdCollectionAutomatically" : false,
+        "ok" : 1
+}
+
+
+---------------------------------------------------------------------------------------------------
 -- Text Search--
 db.posts.find({
     $text: {
       $search: "\"Post F\""
       }
   }).pretty()
+
+
+OutPut:
+
+{
+        "_id" : ObjectId("61e8013935a7d32a85e34a80"),
+        "title" : "Post Four",
+        "body" : "body of post Four",
+        "Category" : "Technology",
+        "date" : "Wed Jan 19 2022 17:46:57 GMT+0530 (India Standard Time)",
+        "user" : {
+                "name" : "Rohit Sharma",
+                "status" : "Author"
+        }
+}
+---------------------------------------------------------------------------------------------------
