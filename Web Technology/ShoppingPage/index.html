@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>The Smart Store</title>
+    <meta name="description" content="This is the description">
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" async></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <h1 class="header-name header-name-large">The Smart Store</h1>
+    </header>
+    <section class="container content-section">
+        <h2 class="section-header">Add New Items</h2>
+
+        <form name="addProductForm">
+            <table cellspacing="2" cellpadding="2" id="productInputTable">
+                <tr>
+                    <td align="right">Product Name</td>
+                    <td><input type="text" name="pName" id="productName" /></td>
+                </tr>
+                <tr>
+                    <td align="right">Product Image</td>
+                    <td><input type="file" name="image" accept="image/png, image/jpg, image/jpeg" id="productImage" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="right">Description</td>
+                    <td><input type="text" name="desc" id="productDesc" /></td>
+                </tr>
+
+                <tr>
+                    <td align="right">Quantity</td>
+                    <td><input type="number" name="qty" id="productQty" /></td>
+                </tr>
+
+                <tr>
+                    <td align="right">Price</td>
+                    <td><input type="number" name="price" id="productPrice" /></td>
+                </tr>
+
+                <tr>
+                    <td align="right"><button class="btn btn-primary shop-item-button" style="text-align: center;"
+                            type="reset">Reset</button></td>
+                    <td><button class="btn btn-primary shop-item-button" onclick="validate()" type="button">Add
+                            Product</button></td>
+                </tr>
+
+            </table>
+        </form>
+
+
+    </section>
+
+
+    <section class="container content-section">
+        <h2 class="section-header">PRODUCTS</h2>
+        <div class="shop-items">
+
+            <div id="product" class="product shop-item">
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="container content-section">
+        <h2 class="section-header" id="cartHeader">CART</h2>
+
+        <div id="cart" class="cart">
+            <table id="cartTable">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Rate</th>
+                        <th>Quantity</th>
+                        <th>Amount</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="cartTableBody">
+
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="total cart-total" id="total">
+            <strong class="cart-total-title">Total</strong>
+            <span class="cart-total-price">Rs 0</span>
+        </div>
+        <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+    </section>
+
+
+    <footer class="main-footer">
+        <div class="container main-footer-container">
+            <h3 class="header-name">The Smart Store</h3>
+            <ul class="nav footer-nav">
+                <li>
+                    <a href="https://www.youtube.com" target="_blank">
+                        <img src="Images/YouTube Logo.png">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.spotify.com" target="_blank">
+                        <img src="Images/Spotify Logo.png">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="Images/Facebook Logo.png">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>
