@@ -1,7 +1,7 @@
 {
-  "name": "node-js",
+  "name": "nodejs",
   "version": "1.0.0",
-  "description": "Assignment",
+  "description": "CRUD Operation",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,8 +9,7 @@
   "author": "Vaibhav",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.1",
     "express": "^4.17.2",
-    "mysql": "^2.18.1"
+    "mysql2": "^2.3.3"
   }
 }
